@@ -1,5 +1,5 @@
 mixed-port: 7890
-allow-lan: false
+allow-lan: true
 mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
@@ -11,7 +11,7 @@ dns:
   enable: true
   listen: 127.0.0.1:5335
   default-nameserver: [180.184.1.1, 119.29.29.29, 223.5.5.5]
-  ipv6: true
+  ipv6: false
   use-hosts: true
   fake-ip-filter: ["*.n.n.srv.nintendo.net", +.stun.playstation.net, xbox.*.*.microsoft.com, "*.msftncsi.com", "*.msftconnecttest.com", WORKGROUP, "*.lan", stun.*.*.*, stun.*.*, time.windows.com, time.nist.gov, time.apple.com, time.asia.apple.com, "*.ntp.org.cn", "*.openwrt.pool.ntp.org", time1.cloud.tencent.com, time.ustc.edu.cn, pool.ntp.org, ntp.ubuntu.com, "*.*.xboxlive.com", speedtest.cros.wr.pvp.net]
   nameserver: [tls://223.5.5.5:853, https://223.6.6.6/dns-query, https://120.53.53.53/dns-query]
@@ -19,10 +19,9 @@ dns:
   fallback: [https://101.101.101.101/dns-query, https://public.dns.iij.jp/dns-query, https://208.67.220.220/dns-query]
   fallback-filter: {geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32, 223.75.236.241/32, 182.43.124.6/32, 106.74.25.198/32], domain: [+.bianyuan.xyz, +.happynothings031.xyz, +.jsdelivr.net, +.proton.me]}
 proxies:
-  - {name: G1V, server: lamchow.asuscomm.com, port: 1080, type: socks5}
-  - {name: TW, server: 35.221.155.179, port: 62458, type: vmess, uuid: c9a6e507-916b-4a8e-9341-848f61b19595, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
+  - {name: TW, server: 35.234.24.250, port: 60268, type: vmess, uuid: 70fd111f-97c8-406d-bf6e-eec8f4ccce25, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
   - {name: JP, server: 34.146.123.236, port: 31077, type: vmess, uuid: a5c7c9dd-c322-408c-8895-b05b5ff66277, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
-  - {name: SG, server: 34.87.143.86, port: 34327, type: vmess, uuid: cb64915d-a32e-4fff-bc2e-c86d6ec8770e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
+  - {name: SG, server: 34.142.206.118, port: 56032, type: vmess, uuid: 85222cc0-4cd2-4b26-a7b3-514796fd157d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
   - {name: US, server: 35.197.105.198, port: 47213, type: vmess, uuid: 36d609d5-4bfb-4471-bfbc-7723172fd294, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
 proxy-groups:
   - name: 🔰 节点选择
@@ -30,7 +29,6 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - G1V
       - TW
       - JP
       - SG
@@ -40,7 +38,6 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - G1V
       - TW
       - JP
       - SG
@@ -51,7 +48,6 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - G1V
       - TW
       - JP
       - SG
@@ -74,7 +70,6 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - G1V
       - TW
       - JP
       - SG
@@ -89,7 +84,6 @@ proxy-groups:
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - G1V
       - TW
       - JP
       - SG
@@ -99,7 +93,6 @@ proxy-groups:
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - G1V
       - TW
       - JP
       - SG
@@ -110,7 +103,6 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - G1V
       - TW
       - JP
       - SG
@@ -130,7 +122,6 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - G1V
       - TW
       - JP
       - SG
@@ -225,24 +216,6 @@ rules:
   - DOMAIN,bdtj.tagtic.cn,🎯 全球直连
   - DOMAIN,log.mmstat.com,🎯 全球直连
   - DOMAIN,sycm.mmstat.com,🎯 全球直连
-  - DOMAIN-SUFFIX,blog.google,🎯 全球直连
-  - DOMAIN-SUFFIX,googletraveladservices.com,🎯 全球直连
-  - DOMAIN,clientservices.googleapis.com,🎯 全球直连
-  - DOMAIN,dl.google.com,🎯 全球直连
-  - DOMAIN,dl.l.google.com,🎯 全球直连
-  - DOMAIN,update.googleapis.com,🎯 全球直连
-  - DOMAIN,translate.googleapis.com,🎯 全球直连
-  - DOMAIN,fonts.googleapis.com,🎯 全球直连
-  - DOMAIN,fonts.gstatic.com,🎯 全球直连
-  - DOMAIN,mtalk.google.com,🎯 全球直连
-  - DOMAIN,alt1-mtalk.google.com,🎯 全球直连
-  - DOMAIN,alt2-mtalk.google.com,🎯 全球直连
-  - DOMAIN,alt3-mtalk.google.com,🎯 全球直连
-  - DOMAIN,alt4-mtalk.google.com,🎯 全球直连
-  - DOMAIN,alt5-mtalk.google.com,🎯 全球直连
-  - DOMAIN,alt6-mtalk.google.com,🎯 全球直连
-  - DOMAIN,alt7-mtalk.google.com,🎯 全球直连
-  - DOMAIN,alt8-mtalk.google.com,🎯 全球直连
   - DOMAIN,pubads.g.doubleclick.net,🎯 全球直连
   - DOMAIN,fairplay.l.qq.com,🎯 全球直连
   - DOMAIN,livew.l.qq.com,🎯 全球直连
