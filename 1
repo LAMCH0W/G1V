@@ -19,9 +19,11 @@ dns:
   fallback: [https://101.101.101.101/dns-query, https://public.dns.iij.jp/dns-query, https://208.67.220.220/dns-query]
   fallback-filter: {geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32, 223.75.236.241/32, 182.43.124.6/32, 106.74.25.198/32], domain: [+.bianyuan.xyz, +.happynothings031.xyz, +.jsdelivr.net, +.proton.me]}
 proxies:
-  - {name: TW, server: 35.234.24.250, port: 60268, type: vmess, uuid: 70fd111f-97c8-406d-bf6e-eec8f4ccce25, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
+  - {name: TW, server: 34.80.162.95, port: 1698, type: vmess, uuid: dfc72e09-f370-4340-80da-195f2d805e50, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
+  - {name: TW1, server: 35.234.24.250, port: 10126, type: vmess, uuid: 523eedc5-8ef0-4da3-9e23-31df34a84911, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
+  - {name: TW2, server: 35.189.178.125, port: 30286, type: vmess, uuid: 418feb42-2068-4419-bbb8-bdc1b15e5830, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
+  - {name: SG, server: 34.142.185.162, port: 43344, type: vmess, uuid: cac469c6-5f97-40b5-bc5f-daf139f66cfd, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
   - {name: JP, server: 34.146.123.236, port: 31077, type: vmess, uuid: a5c7c9dd-c322-408c-8895-b05b5ff66277, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
-  - {name: SG, server: 34.142.206.118, port: 56032, type: vmess, uuid: 85222cc0-4cd2-4b26-a7b3-514796fd157d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
   - {name: US, server: 35.197.105.198, port: 47213, type: vmess, uuid: 36d609d5-4bfb-4471-bfbc-7723172fd294, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
 proxy-groups:
   - name: 🔰 节点选择
@@ -30,8 +32,10 @@ proxy-groups:
       - ♻️ 自动选择
       - 🎯 全球直连
       - TW
-      - JP
+      - TW1
+      - TW2
       - SG
+      - JP
       - US
   - name: ♻️ 自动选择
     type: url-test
@@ -39,8 +43,10 @@ proxy-groups:
     interval: 300
     proxies:
       - TW
-      - JP
+      - TW1
+      - TW2
       - SG
+      - JP
       - US
   - name: 🎥 NETFLIX
     type: select
@@ -49,8 +55,10 @@ proxy-groups:
       - ♻️ 自动选择
       - 🎯 全球直连
       - TW
-      - JP
+      - TW1
+      - TW2
       - SG
+      - JP
       - US
   - name: ⛔️ 广告拦截
     type: select
@@ -71,8 +79,10 @@ proxy-groups:
       - ♻️ 自动选择
       - 🎯 全球直连
       - TW
-      - JP
+      - TW1
+      - TW2
       - SG
+      - JP
       - US
   - name: 🌏 国内媒体
     type: select
@@ -85,8 +95,10 @@ proxy-groups:
       - 🎯 全球直连
       - 🔰 节点选择
       - TW
-      - JP
+      - TW1
+      - TW2
       - SG
+      - JP
       - US
   - name: 📲 电报信息
     type: select
@@ -94,8 +106,10 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - TW
-      - JP
+      - TW1
+      - TW2
       - SG
+      - JP
       - US
   - name: 🍎 苹果服务
     type: select
@@ -104,8 +118,10 @@ proxy-groups:
       - 🎯 全球直连
       - ♻️ 自动选择
       - TW
-      - JP
+      - TW1
+      - TW2
       - SG
+      - JP
       - US
   - name: 🎯 全球直连
     type: select
@@ -123,8 +139,10 @@ proxy-groups:
       - 🎯 全球直连
       - ♻️ 自动选择
       - TW
-      - JP
+      - TW1
+      - TW2
       - SG
+      - JP
       - US
 rules:
   - DOMAIN-SUFFIX,local,🎯 全球直连
